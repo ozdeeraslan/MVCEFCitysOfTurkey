@@ -1,0 +1,34 @@
+﻿@model List<Sehir>
+
+@{
+    ViewData["Title"] = "Harflere Göre Iller";
+    string harfler = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ";
+}
+
+<h1>@ViewBag.Title</h1>
+@{
+    var alfabe = ViewBag.Alfabe;
+}
+
+@foreach (var harf in harfler)
+{
+    <a class="btn btn-outline-dark" asp-route-harf="@harf">@harf</a>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Plaka</th>
+            <th>Sehir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sehir in Model)
+        {
+            <tr>
+                <td>@sehir.Id</td>
+                <td>@sehir.SehirAd</td>
+            </tr>
+        }
+    </tbody>
+</table>

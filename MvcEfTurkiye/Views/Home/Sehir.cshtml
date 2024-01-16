@@ -1,0 +1,37 @@
+﻿@model List<Sehir>
+@{
+    ViewData["Title"] = "Sehirler";
+}
+
+
+<h2>Türkiye'nin Illeri</h2>
+
+<form method="get" asp-controller="Home" asp-action="Sehir" class="row g-3">
+    <div class="col-auto">
+        <label for="ara" class="col-form-label">Arama Sözcügü</label>
+    </div>
+    <div class="col-auto">
+        <input type="text" class="form-control" id="ara" name="ara" placeholder="Ara..">
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Arama Yap</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Plaka</th>
+            <th>Sehir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sehir in Model)
+        {
+            <tr>
+                <td>@sehir.Id</td>
+                <td>@sehir.SehirAd</td>
+            </tr>
+        }
+    </tbody>
+</table>
